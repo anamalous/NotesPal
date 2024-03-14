@@ -1,0 +1,13 @@
+{% load static %}
+<html>
+    <body>
+        <link type="text/css" rel="stylesheet" href="{% static 'designnotes.css'%}">
+        <h1>NEW NOTE</h1>
+        <form action="adding/" method="POST">
+            {% csrf_token %}
+            <input class="i" name="title"><br><br>
+            <textarea id="t" name="content"></textarea><br><br>
+            <input class="b" type="submit"  value="Done"/>
+        </form>
+    </body>
+</html>

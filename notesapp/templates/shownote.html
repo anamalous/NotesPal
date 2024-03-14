@@ -1,0 +1,29 @@
+{% load static %}
+<html>
+    <body>
+        <script>
+            window.onload=function(){
+                var p=document.getElementsByClassName("edit")
+                for(i=0;i<p.length;i++){
+                    p[i].innerHTML=p[i].textContent;
+                }
+            }
+        </script>
+
+        <link type="text/css" rel="stylesheet" href="{% static 'designnotes.css'%}">
+        <h1>NOTES <3 <a style="color:white;text-align:right" href="mode/">light mode</a></h1> 
+        <h2><a href='folders/' style="padding:20px; color:white">My Folders</a></h2>
+        {% for x in data %}
+            <center><div style='background-color:{% cycle "rgb(212, 161, 212)" "rgb(167, 210, 240)" "rgb(235, 180, 150)" "rgb(169, 236, 205)" %}'class="note">   
+                <a href="update/{{x.id}}"><b><u>{{ x.name }}</u></b></a><i><p style="text-align: left;"> last updated: {{x.date}}</p></i>
+                <p class="edit" style="font-size:15px;text-align:left;margin:20px">{{ x.d }}</p>
+                <p style="text-align:right;margin-right:10px;"><a href="delete/{{ x.id }}">X</a></p>
+                <p style="text-align:left;margin-right:10px;"><a href="print/{{ x.id }}">print</a></p>
+            </div></center>
+            <br>
+        {% endfor %}
+        <form action="addnote/">
+            <input class="b" type="submit"  value="Add Note"/>
+        </form>
+    </body>
+</html>
