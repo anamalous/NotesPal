@@ -130,8 +130,8 @@ def mailing(request,id):
     your notesapp pdf
     python test uwu'''
 
-    sender="adonuts593@gmail.com"
-    password="aastwoqmutpbhbsf"
+    #sender="your email"
+    #password="your password"
 
     receiver=request.POST['email']
 
